@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS store_items;
+DROP TABLE IF EXISTS character_items;
+DROP TABLE IF EXISTS characters;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS stores;
+
+CREATE TABLE characters (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(15) NOT NULL
+);

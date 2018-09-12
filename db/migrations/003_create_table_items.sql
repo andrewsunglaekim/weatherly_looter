@@ -1,6 +1,4 @@
-DROP TABLE IF EXISTS items;
-
 CREATE TABLE items (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(30)
+  name VARCHAR(30) NOT NULL
 );

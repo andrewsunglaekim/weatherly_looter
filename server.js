@@ -3,6 +3,7 @@ var express = require('express');
 var cors = require('cors')
 var graphqlHTTP = require('express-graphql');
 var { buildSchema } = require('graphql');
+var db = require('./db/connection')
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
@@ -57,6 +58,20 @@ var root = {
     return new RandomDie(numSides || 6);
   }
 };
+
+(async() =>{
+  try {
+    const items = await fetchItems()
+    console.log(items);
+  } catch(err) {
+    console.log(err);
+  }
+})()
+
+async function fetchItems() {
+  const items = await db.any('SELECT * FROM items', [true])
+  return items
+}
 
 var app = express();
 app.use(cors())

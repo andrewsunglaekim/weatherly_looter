@@ -1,0 +1,4 @@
+CREATE TABLE stores (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(20) NOT NULL
+);
